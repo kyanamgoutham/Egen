@@ -1,0 +1,40 @@
+package com.egen.test.userservice.facade;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+
+import com.egen.test.framework.backendresponse.BackendResponse;
+import com.egen.test.framework.facade.IResourceFacade;
+import com.egen.test.framework.facade.ResourceFacade;
+import com.egen.test.framework.request.IRequest;
+import com.egen.test.framework.requestValidator.IRequestValidator;
+import com.egen.test.framework.responseMapper.IResponseMapper;
+import com.egen.test.framework.service.IService;
+import com.egen.test.userservice.request.CreateUserRequest;
+import com.egen.test.userservice.service.IUserService;
+
+@Component("createUserResourceFacade")
+public class CreateUserResourceFacade extends ResourceFacade {
+	@Autowired
+	@Qualifier("createUserRequestValidator")
+	IRequestValidator requestValidator;
+	@Autowired
+	IService service;
+	@Autowired
+	@Qualifier("createUserResponseMapper")
+	IResponseMapper responseMapper;
+
+	@Override
+	public IResourceFacade initiate() {
+		setRequestValidator(requestValidator);
+		setService(service);
+		setResponseMapper(responseMapper);
+		return this;
+	}
+
+	@Override
+	public void processRequest(IRequest request, IService service) {
+		IUserService userService = (IUserService) service;
+		backendResponse = (BackendResponse) userService.save(((CreateUserRequest) request).getUser());
+	}
+}

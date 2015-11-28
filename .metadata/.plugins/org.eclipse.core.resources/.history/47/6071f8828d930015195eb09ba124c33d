@@ -1,0 +1,19 @@
+package com.egen.test.stubs;
+
+import com.egen.test.pojo.User;
+
+public class UserStub {
+	
+	public static User getUserStub(){
+		User user = new User();
+		user.setZip(39831);
+		user.setGender('M');
+		user.setPhone("2456987456");
+		user.setmName("Francis");
+		user.setAge(10);
+		user.setfName("Joseph");
+		user.setlName("Herald");
+		return user;
+	}
+
+}

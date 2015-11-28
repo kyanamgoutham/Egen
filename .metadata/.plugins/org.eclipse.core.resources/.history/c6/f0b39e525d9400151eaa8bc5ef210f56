@@ -1,0 +1,9 @@
+package com.egen.test.userservice.request;
+
+import com.egen.test.framework.request.Request;
+import com.egen.test.pojo.User_Table;
+
+public class UserListRequest extends Request {
+	private User_Table user;
+
+}

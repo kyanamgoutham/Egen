@@ -1,0 +1,93 @@
+package pojcom.egen.test.pojoo;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
+
+/**
+ * @author Goutham
+ *
+ */
+public class User {
+
+	@Id
+	@Column(name = "UUID", unique = true, nullable = false)
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private String id;
+	private String fName;
+	private String lName;
+	private String mName;
+	private int age;
+	private char gender;
+	private String phone;
+	private int zip;
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getfName() {
+		return fName;
+	}
+
+	public void setfName(String fName) {
+		this.fName = fName;
+	}
+
+	public String getlName() {
+		return lName;
+	}
+
+	public void setlName(String lName) {
+		this.lName = lName;
+	}
+
+	public String getmName() {
+		return mName;
+	}
+
+	public void setmName(String mName) {
+		this.mName = mName;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public char getGender() {
+		return gender;
+	}
+
+	public void setGender(char gender) {
+		this.gender = gender;
+	}
+
+	public int getZip() {
+		return zip;
+	}
+
+	public void setZip(int zip) {
+		this.zip = zip;
+	}
+
+}

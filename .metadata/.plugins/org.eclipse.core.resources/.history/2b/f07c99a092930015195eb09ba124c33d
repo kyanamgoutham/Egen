@@ -1,0 +1,45 @@
+package com.egen.test.userservice.service;
+
+import java.util.List;
+
+import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.egen.test.pojo.User;
+import com.egen.test.userservice.dao.UserDAO;
+
+@Component
+public class UserService implements IUserService {
+	
+	private UserDAO userDao;
+	
+
+	public UserService(UserDAO userDao) {
+		this.userDao = userDao;
+	}
+
+	@Override
+	@Transactional
+	public void save(User user) {
+		userDao.save(user);
+	}
+
+	@Override
+	@Transactional
+	public List<User> getUserList() {
+		return userDao.getUserList();
+	}
+
+	@Override
+	@Transactional
+	public void delete(User user) {
+		userDao.delete(user);
+	}
+
+	@Override
+	@Transactional
+	public User findById(int id) {
+		return userDao.findById(id);
+	}
+	
+}

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.egen.test.pojo">
+    <class name="User_Table" table="USER_TABLE">
+        <id name="id" column="UUID">
+            <generator class="native"/>
+        </id>
+        <property name="fName" column="FNAME" />
+        <property name="lName" column="LNAME" />
+        <property name="mName" column="MNAME" />
+        <property name="age" column="AGE" />
+        <property name="gender" column="GENDER" />
+        <property name="phone" column="PHONE" />
+        <property name="zip" column="ZIP" />
+    </class> 
+</hibernate-mapping>

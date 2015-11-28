@@ -1,0 +1,28 @@
+package com.egen.test.framework.response;
+
+import java.util.List;
+
+import com.egen.test.framework.response.Response;
+import com.egen.test.pojo.User;
+
+public class UserListResponse extends Response {
+
+	private List<User> userList;
+	private int size;
+
+	public List<User> getUserList() {
+		return userList;
+	}
+
+	public void setUserList(List<User> userList) {
+		this.userList = userList;
+	}
+
+	public int getSize() {
+		return size;
+	}
+
+	public void setSize(int size) {
+		this.size = size;
+	}
+}

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<libraryInfos>
+<libraryInfo home="C:\Java" version="1.8.0_66">
+<bootpath>
+<entry path="C:\Java\lib\resources.jar"/>
+<entry path="C:\Java\lib\rt.jar"/>
+<entry path="C:\Java\lib\sunrsasign.jar"/>
+<entry path="C:\Java\lib\jsse.jar"/>
+<entry path="C:\Java\lib\jce.jar"/>
+<entry path="C:\Java\lib\charsets.jar"/>
+<entry path="C:\Java\lib\jfr.jar"/>
+<entry path="C:\Java\classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="C:\Java\lib\ext"/>
+<entry path="C:\WINDOWS\Sun\Java\lib\ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="C:\Java\lib\endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+<libraryInfo home="C:\Oracle\Middleware\Oracle_Home\oracle_common\jdk" version="1.7.0_51">
+<bootpath>
+<entry path="C:\Oracle\Middleware\Oracle_Home\oracle_common\jdk\jre\lib\resources.jar"/>
+<entry path="C:\Oracle\Middleware\Oracle_Home\oracle_common\jdk\jre\lib\rt.jar"/>
+<entry path="C:\Oracle\Middleware\Oracle_Home\oracle_common\jdk\jre\lib\sunrsasign.jar"/>
+<entry path="C:\Oracle\Middleware\Oracle_Home\oracle_common\jdk\jre\lib\jsse.jar"/>
+<entry path="C:\Oracle\Middleware\Oracle_Home\oracle_common\jdk\jre\lib\jce.jar"/>
+<entry path="C:\Oracle\Middleware\Oracle_Home\oracle_common\jdk\jre\lib\charsets.jar"/>
+<entry path="C:\Oracle\Middleware\Oracle_Home\oracle_common\jdk\jre\lib\jfr.jar"/>
+<entry path="C:\Oracle\Middleware\Oracle_Home\oracle_common\jdk\jre\classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="C:\Oracle\Middleware\Oracle_Home\oracle_common\jdk\jre\lib\ext"/>
+<entry path="C:\WINDOWS\Sun\Java\lib\ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="C:\Oracle\Middleware\Oracle_Home\oracle_common\jdk\jre\lib\endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+</libraryInfos>

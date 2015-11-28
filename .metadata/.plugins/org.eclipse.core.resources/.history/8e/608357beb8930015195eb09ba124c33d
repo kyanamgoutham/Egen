@@ -1,0 +1,49 @@
+package com.egen.test.userservice.dao;
+
+import org.hibernate.SessionFactory;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.egen.test.framework.Exception.EgenException;
+import com.egen.test.framework.backendresponse.BackendResponse;
+import com.egen.test.framework.backendresponse.IBackendResponse;
+import com.egen.test.pojo.User_Table;
+
+public class UserDAO implements IUserDAO {
+
+	private SessionFactory sessionFactory;
+
+	public UserDAO(SessionFactory sessionFactory) {
+		super();
+		this.sessionFactory = sessionFactory;
+	}
+
+	@Override
+	@Transactional
+	public IBackendResponse getUserList() {
+		BackendResponse backendResponse = new BackendResponse();
+		try{
+			backendResponse.setBackendResponse(sessionFactory.getCurrentSession().createQuery("from User_Table").list());
+		}catch(Exception e){
+			backendResponse.setBackendResponse(new EgenException(e,"EGEN_DAO_ERR_1"));
+		}
+		return backendResponse;
+	}
+
+	@Override
+	public User_Table findById(int id) {
+		return null;
+	}
+
+	@Override
+	public User_Table save(User_Table user) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void delete(User_Table user) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,5 @@
+package com.egen.test.framework.Exception;
+
+public interface IEgenException {
+
+}

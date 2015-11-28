@@ -1,0 +1,39 @@
+package com.egen.test.framework.facade;
+
+import com.egen.test.framework.Exception.EgenException;
+import com.egen.test.framework.RequestValidator.IRequestValidator;
+import com.egen.test.framework.ResponseMapper.IResponseMapper;
+import com.egen.test.framework.backendresponse.BackendResponse;
+import com.egen.test.framework.constants.IUserServiceConstants;
+import com.egen.test.framework.request.IRequest;
+import com.egen.test.framework.response.IResponse;
+import com.egen.test.framework.service.IService;
+
+public abstract class ResourceFacade implements IResourceFacade {
+
+	protected IRequest request;
+	protected IResponse response;
+	protected EgenException egenException;
+	protected BackendResponse backendResponse;
+
+	@Override
+	public IResponse initiate(IRequestValidator requestValidator, IService service, IResponseMapper responseMapper,
+			IUserServiceConstants userServiceConstants) {
+		if (!requestValidator.validate(request, egenException)) {
+			return responseMapper.createInvalidResponse(response, egenException);
+		}
+
+		processRequest(request, service, userServiceConstants);
+
+		if (backendResponse.isValidResponse()) {
+			response = responseMapper.buildResponse(backendResponse);
+		}
+
+		return response;
+	}
+
+	public ResourceFacade(IRequest request, IResponse response) {
+		this.request = request;
+		this.response = response;
+	}
+}

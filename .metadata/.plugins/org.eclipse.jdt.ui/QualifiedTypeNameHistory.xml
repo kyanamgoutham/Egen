@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="com.egen.test.framework.backendresponse.BackendResponse"/>
+<fullyQualifiedTypeName name="com.egen.test.framework.service.IService"/>
+<fullyQualifiedTypeName name="com.egen.test.userservice.service.IUserService"/>
+<fullyQualifiedTypeName name="com.egen.test.framework.request.IRequest"/>
+<fullyQualifiedTypeName name="com.egen.test.userservice.validator.UserListRequestValidator"/>
+<fullyQualifiedTypeName name="com.egen.test.framework.requestValidator.IRequestValidator"/>
+<fullyQualifiedTypeName name="com.egen.test.framework.constants.UserServiceConstants"/>
+<fullyQualifiedTypeName name="com.egen.test.framework.facade.ResourceFacade"/>
+<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Qualifier"/>
+<fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
+<fullyQualifiedTypeName name="com.egen.test.userservice.response.FindUserResponse"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
+<fullyQualifiedTypeName name="com.egen.test.framework.request.Request"/>
+<fullyQualifiedTypeName name="com.egen.test.framework.response.Response"/>
+<fullyQualifiedTypeName name="java.lang.Override"/>
+<fullyQualifiedTypeName name="com.egen.test.framework.exception.EgenException"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ExceptionHandler"/>
+<fullyQualifiedTypeName name="java.lang.Throwable"/>
+<fullyQualifiedTypeName name="com.egen.test.framework.response.failure.FailureResponse"/>
+<fullyQualifiedTypeName name="com.egen.test.framework.resource.Resource"/>
+</qualifiedTypeNameHistroy>

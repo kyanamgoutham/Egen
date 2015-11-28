@@ -1,0 +1,7 @@
+package com.egen.test.userservice.response;
+
+import com.egen.test.framework.response.IResponse;
+
+public class CreateUserResponse extends Response {
+
+}

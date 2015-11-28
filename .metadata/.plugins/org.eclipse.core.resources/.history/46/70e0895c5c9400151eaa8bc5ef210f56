@@ -1,0 +1,10 @@
+package com.egen.test.framework.RequestValidator;
+
+import com.egen.test.framework.Exception.EgenException;
+import com.egen.test.framework.request.IRequest;
+
+public interface IRequestValidator {
+
+	boolean validate(IRequest request, EgenException egenException);
+
+}

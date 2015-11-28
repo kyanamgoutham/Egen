@@ -1,0 +1,5 @@
+package com.egen.test.framework.backendresponse;
+
+public class BackendResponse implements IBackendResponse {
+	private Object backendResponse;
+}

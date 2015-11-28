@@ -1,0 +1,15 @@
+package com.egen.test.userservice.validator;
+
+import com.egen.test.framework.Exception.EgenException;
+import com.egen.test.framework.RequestValidator.IRequestValidator;
+import com.egen.test.framework.request.IRequest;
+
+public class UserListRequestValidator implements IRequestValidator {
+
+	@Override
+	public boolean validate(IRequest request, EgenException egenException) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

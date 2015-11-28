@@ -1,0 +1,35 @@
+1448464447323	Rename package 'pojo'
+1448464600234	Rename package 'pojcom.egen.test.pojoo'
+1448464950182	Rename package 'pojcom.egen.test.pojo'
+1448465155841	Rename package 'userservice'
+1448467052955	Rename package 'com.egen.test.pojo.response'
+1448467125972	Rename package 'com.egen.test.pojo.commondata'
+1448467447220	Rename package 'userservice'
+1448467649997	Delete element
+1448467653374	Delete element
+1448467656340	Delete element
+1448468777530	Rename package 'com.egen.test.resource'
+1448472495318	Rename type 'User'
+1448475661540	Copy file
+1448475668416	Delete element
+1448477281977	Rename compilation unit 'EgenException.java'
+1448477899007	Delete element
+1448481001522	Rename type 'Use'
+1448481030752	Rename package 'com.egen.test.UserListRequestValidator'
+1448484680486	Rename type 'UserListResourceFacade'
+1448484766297	Delete element
+1448491022989	Rename type 'UserResource'
+1448555759280	Rename type 'IDao'
+1448556011680	Rename package 'com.egen.test.framework.Exception'
+1448556028569	Rename package 'com.egen.test.framework.RequestValidator'
+1448556041032	Rename package 'com.egen.test.framework.ResponseMapper'
+1448562937662	Rename type 'UserResourceFacade'
+1448564491108	Rename type 'ListUserResource'
+1448564634725	Rename field 'userListResourceFacade'
+1448564667034	Rename type 'UserListRequest'
+1448564692954	Rename type 'UserListResponse'
+1448567762086	Delete element
+1448568038602	Rename type 'UserListRequestValidator'
+1448568073755	Rename type 'UserListResponseMapper'
+1448568158321	Rename local variable 'userListResourceFacade'
+1448568250203	Rename local variable 'userListResponse'

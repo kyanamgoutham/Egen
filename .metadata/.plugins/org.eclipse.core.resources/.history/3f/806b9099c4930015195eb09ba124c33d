@@ -1,0 +1,13 @@
+package com.egen.test.userservice.helper;
+
+import com.egen.test.framework.request.IRequest;
+import com.egen.test.pojo.User_Table;
+
+public class EgenUserServiceHelper {
+
+	public static User_Table getUser(IRequest request) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

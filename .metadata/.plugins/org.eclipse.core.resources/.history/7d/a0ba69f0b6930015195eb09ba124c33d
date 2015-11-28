@@ -1,0 +1,5 @@
+package com.egen.test.userservice.helper;
+
+public class EgenUserServiceHelper {
+
+}

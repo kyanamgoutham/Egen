@@ -1,0 +1,15 @@
+package com.egen.test.userservice.dao;
+
+import com.egen.test.framework.backendresponse.IBackendResponse;
+import com.egen.test.pojo.User_Table;
+
+public interface IUserDAO {
+	public IBackendResponse getUserList();
+
+	public User_Table findById(int id);
+
+	public IBackendResponse save(User_Table user);
+
+	public void delete(User_Table user);
+
+}

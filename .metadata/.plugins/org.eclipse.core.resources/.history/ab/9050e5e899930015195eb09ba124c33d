@@ -1,0 +1,16 @@
+package com.egen.test.userservice.dao;
+
+import java.util.List;
+
+import com.egen.test.pojo.User;
+
+public interface IUserDAO {
+	public List<User> getUserList();
+
+	public User findById(int id);
+
+	public User save(User user);
+
+	public void delete(User user);
+
+}

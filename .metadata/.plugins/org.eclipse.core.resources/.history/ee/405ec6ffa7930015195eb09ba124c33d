@@ -1,0 +1,12 @@
+package com.egen.test.userservice.service;
+
+import java.util.List;
+
+import com.egen.test.pojo.User_Table;
+
+public interface IUserService {
+	public void save(User_Table user);
+    public List<User_Table> getUserList();
+    public void delete(User_Table user);
+    public User_Table findById(int id);
+}

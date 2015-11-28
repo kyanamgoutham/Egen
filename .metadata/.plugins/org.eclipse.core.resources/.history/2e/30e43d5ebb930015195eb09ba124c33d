@@ -1,0 +1,29 @@
+package com.egen.test.userservice.validator;
+
+import org.apache.commons.lang.StringUtils;
+
+import com.egen.test.framework.Exception.EgenException;
+import com.egen.test.framework.RequestValidator.IRequestValidator;
+import com.egen.test.framework.request.IRequest;
+import com.egen.test.pojo.User_Table;
+import com.egen.test.userservice.request.CreateUserRequest;
+
+public class CreateUserRequestValidator implements IRequestValidator {
+	
+	
+	@Override
+	public boolean validate(IRequest request, EgenException egenException) {
+		User_Table user = ((CreateUserRequest)request).getUser();
+		String errorMsg;
+		if(StringUtils.isBlank(user.getfName())){
+			errorMsg = "Invalid Request Exception: missing fname";
+		}else if(StringUtils.isBlank(user.getlName())){
+			errorMsg = "Invalid Request Exception: missing lname";
+		}
+		if(StringUtils.isNotBlank(errorMsg)){
+			egenException = new EgenException(new Exception("InvalidRequest"),errorMsg);
+		}
+		return false;
+	}
+
+}

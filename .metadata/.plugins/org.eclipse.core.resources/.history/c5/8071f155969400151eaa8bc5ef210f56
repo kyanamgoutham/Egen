@@ -1,0 +1,26 @@
+package com.egen.test.userservice.validator;
+
+import com.egen.test.framework.exception.EgenException;
+import com.egen.test.framework.request.IRequest;
+import com.egen.test.framework.requestValidator.IRequestValidator;
+import com.egen.test.pojo.User_Table;
+import com.egen.test.userservice.request.CreateUserRequest;
+
+public class FindUserRequestValidator implements IRequestValidator {
+
+	@Override
+	public boolean validate(IRequest request, EgenException egenException) {
+		User_Table user = ((CreateUserRequest)request).getUser();
+		try{
+			int id = Integer.valueOf(user.getId());
+			if(!(id>0)){
+				egenException = new EgenException(new Exception("Invalid Request Exception"), "")
+			}
+		}catch(Exception e){
+			
+		}
+		user.getId();
+		return true;
+	}
+
+}

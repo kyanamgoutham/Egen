@@ -1,0 +1,5 @@
+package com.egen.test.framework.constants;
+
+public class UserServiceConstants implements IUserServiceConstants {
+
+}

@@ -1,0 +1,29 @@
+package com.egen.test.framework.backendresponse;
+
+import java.util.List;
+
+import com.egen.test.framework.Exception.IEgenException;
+
+public class BackendResponse implements IBackendResponse {
+	private Object backendResponse;
+	
+	public BackendResponse(Object backendResponse) {
+		this.backendResponse = backendResponse;
+	}
+
+	public boolean isValidResponse(){
+		if(backendResponse instanceof IEgenException){
+			return false;
+		}
+		
+		return true;
+	}
+
+	public Object getBackendResponse() {
+		return backendResponse;
+	}
+
+	public void setBackendResponse(Object backendResponse) {
+		this.backendResponse = backendResponse;
+	}
+}

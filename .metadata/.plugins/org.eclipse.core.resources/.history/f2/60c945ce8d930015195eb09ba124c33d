@@ -1,0 +1,19 @@
+package com.egen.test.framework.resource;
+
+import java.sql.Timestamp;
+import java.util.Date;
+
+import com.egen.test.framework.commondata.CommonData;
+import com.egen.test.framework.request.Request;
+import com.egen.test.framework.response.Response;
+
+public class Resource implements IResource {
+
+	public void copyRequestCommonData(Request request, Response response){
+		CommonData commonData = new CommonData();
+		commonData.setClient(request.getCommonData().getClient());
+		commonData.setVersion(request.getCommonData().getVersion());
+		commonData.setTimeStamp(new Timestamp((new Date()).getTime()));
+		response.setCommonData(commonData);
+	}
+}

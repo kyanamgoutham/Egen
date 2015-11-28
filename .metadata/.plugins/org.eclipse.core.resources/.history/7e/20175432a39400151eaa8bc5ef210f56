@@ -1,0 +1,21 @@
+package com.egen.test.framework.responseMapper;
+
+import com.egen.test.framework.backendresponse.IBackendResponse;
+import com.egen.test.framework.exception.EgenException;
+import com.egen.test.framework.response.IResponse;
+
+public abstract class ResponseMapper implements IResponseMapper {
+
+	@Override
+	public IResponse createInvalidResponse(EgenException egenException) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public IResponse buildResponse(IBackendResponse backendResponse) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

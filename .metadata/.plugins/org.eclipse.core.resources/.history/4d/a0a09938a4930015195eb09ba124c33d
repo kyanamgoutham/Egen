@@ -1,0 +1,10 @@
+package com.egen.test.framework.facade;
+
+import com.egen.test.framework.RequestValidator.IRequestValidator;
+import com.egen.test.framework.ResponseMapper.IResponseMapper;
+import com.egen.test.userservice.service.IUserService;
+
+public interface IResourceFacade {
+	public void initiate(IRequestValidator requestValidator,IUserService userService,IResponseMapper responseMapper);
+
+}

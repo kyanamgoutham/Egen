@@ -1,0 +1,44 @@
+package com.egen.test.userservice.validator;
+
+import org.apache.commons.lang.StringUtils;
+
+import com.egen.test.framework.exception.EgenException;
+import com.egen.test.framework.request.IRequest;
+import com.egen.test.framework.requestValidator.IRequestValidator;
+import com.egen.test.pojo.User_Table;
+import com.egen.test.userservice.request.CreateUserRequest;
+
+public class CreateUserRequestValidator implements IRequestValidator {
+	
+	
+	@Override
+	public boolean validate(IRequest request, EgenException egenException) {
+		User_Table user = ((CreateUserRequest)request).getUser();
+		if(StringUtils.isBlank(user.getfName())){
+			populateException(egenException,"Invalid Request Exception: missing fname");
+		}else if(StringUtils.isBlank(user.getlName())){
+			populateException(egenException,"Invalid Request Exception: missing lname");
+		}else if(StringUtils.isBlank(user.getPhone())){
+			populateException(egenException,"Invalid Request Exception: missing phone");
+		}else if(user.getPhone().length() != 10 && Long.valueOf(user.getPhone())>0){
+			populateException(egenException,"Invalid Request Exception: Invalid phone Number length");
+		}else if(StringUtils.isBlank(user.getGender())){
+			populateException(egenException,"Invalid Request Exception: missing Gender");
+		}else if(!(user.getGender().equalsIgnoreCase("m") || user.getGender().equalsIgnoreCase("f"))){
+			populateException(egenException,"Invalid Request Exception: Invalid Gender");
+		}else if(user.getAge()<=0){
+			populateException(egenException,"Invalid Request Exception: Invalid Age");
+		}
+		
+		if(egenException != null){
+			return false;
+		}
+		
+		return true;
+	}
+	
+	private void populateException(EgenException egenException,String errorMsg){
+		egenException = new EgenException(new Exception("InvalidRequest"),errorMsg);
+	}
+
+}

@@ -1,0 +1,16 @@
+package com.egen.test.framework.exception;
+
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+
+import com.egen.test.framework.response.IResponse;
+
+@ControllerAdvice
+public class GlobalExceptionHandler {
+	
+	@ExceptionHandler(Throwable.class)
+	public IResponse handleException(){
+		return null;
+	}
+
+}

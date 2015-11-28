@@ -1,0 +1,18 @@
+package com.egen.test.framework.facade;
+
+import com.egen.test.framework.RequestValidator.IRequestValidator;
+import com.egen.test.framework.ResponseMapper.IResponseMapper;
+import com.egen.test.framework.constants.IUserServiceConstants;
+import com.egen.test.framework.response.IResponse;
+import com.egen.test.userservice.service.IUserService;
+
+public class CreateUserResourceFacade implements IResourceFacade {
+
+	@Override
+	public IResponse initiate(IRequestValidator requestValidator, IUserService userService,
+			IResponseMapper responseMapper, IUserServiceConstants userServiceConstants) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

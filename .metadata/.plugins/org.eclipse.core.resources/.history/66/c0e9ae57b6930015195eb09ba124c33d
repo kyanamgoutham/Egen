@@ -1,0 +1,50 @@
+package com.egen.test.userservice.resource;
+
+import javax.ws.rs.Consumes;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+
+import org.springframework.stereotype.Component;
+
+import com.egen.test.framework.RequestValidator.IRequestValidator;
+import com.egen.test.framework.ResponseMapper.IResponseMapper;
+import com.egen.test.framework.constants.UserServiceConstants;
+import com.egen.test.framework.facade.CreateUserResourceFacade;
+import com.egen.test.framework.resource.Resource;
+import com.egen.test.framework.response.IResponse;
+import com.egen.test.userservice.request.CreateUserRequest;
+import com.egen.test.userservice.response.CreateUserResponse;
+import com.egen.test.userservice.service.IUserService;
+
+@Component
+@Path("/createservice")
+public class CreateUserResource extends Resource {
+	
+	private IRequestValidator requestValidator;
+	private IUserService userService;
+	private IResponseMapper responseMapper;
+	
+	@POST
+	@Path("/createuser")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public IResponse createUser(CreateUserRequest request) {
+		CreateUserResponse response = new CreateUserResponse();
+		UserResourceFacade userResourceFacade = new UserResourceFacade(request,response);
+		response= (CreateUserResponse) userResourceFacade.initiate(requestValidator, userService, responseMapper, UserServiceConstants.ListAll);
+		copyRequestCommonData(request, response);
+		return response;
+	}
+
+	public CreateUserResource(IRequestValidator requestValidator, IUserService userService,
+			IResponseMapper responseMapper) {
+		super();
+		this.requestValidator = requestValidator;
+		this.userService = userService;
+		this.responseMapper = responseMapper;
+	}
+	
+
+}

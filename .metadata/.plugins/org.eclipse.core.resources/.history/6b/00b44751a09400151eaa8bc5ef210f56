@@ -1,0 +1,8 @@
+package com.egen.test.framework.response.failure;
+
+import com.egen.test.framework.response.Response;
+
+public class FailureResponse extends Response {
+	String exceptionMessage;
+	String code;
+}

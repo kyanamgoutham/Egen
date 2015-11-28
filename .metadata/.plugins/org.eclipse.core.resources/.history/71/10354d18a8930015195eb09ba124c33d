@@ -1,0 +1,16 @@
+package com.egen.test.userservice.dao;
+
+import java.util.List;
+
+import com.egen.test.pojo.User_Table;
+
+public interface IUserDAO {
+	public List<User_Table> getUserList();
+
+	public User_Table findById(int id);
+
+	public User_Table save(User_Table user);
+
+	public void delete(User_Table user);
+
+}

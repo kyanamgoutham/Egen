@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<typeInfoHistroy>
+<typeInfo handle="=WebServicesApplication/src&lt;com.egen.test.framework.facade{IResourceFacade.java[IResourceFacade" modifiers="513" timestamp="1448564250032"/>
+<typeInfo handle="=WebServicesApplication/src&lt;com.egen.test.framework.request{Request.java[Request" modifiers="1" timestamp="1448467187932"/>
+<typeInfo handle="=WebServicesApplication/src&lt;com.egen.test.framework.facade{ResourceFacade.java[ResourceFacade" modifiers="1025" timestamp="1448571032011"/>
+<typeInfo handle="=WebServicesApplication/src&lt;com.egen.test.framework.requestValidator{IRequestValidator.java[IRequestValidator" modifiers="513" timestamp="1448556028540"/>
+<typeInfo handle="=WebServicesApplication/src&lt;com.egen.test.framework.response{Response.java[Response" modifiers="1" timestamp="1448467052911"/>
+<typeInfo handle="=WebServicesApplication/src&lt;com.egen.test.framework.responseMapper{IResponseMapper.java[IResponseMapper" modifiers="513" timestamp="1448556041004"/>
+</typeInfoHistroy>

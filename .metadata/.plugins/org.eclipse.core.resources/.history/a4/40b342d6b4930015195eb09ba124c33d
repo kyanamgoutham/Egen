@@ -1,0 +1,7 @@
+package com.egen.test.userservice.resource;
+
+import com.egen.test.framework.resource.IResource;
+
+public class CreateUserResource implements IResource {
+
+}

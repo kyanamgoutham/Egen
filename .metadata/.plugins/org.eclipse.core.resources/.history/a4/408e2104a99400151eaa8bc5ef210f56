@@ -1,0 +1,31 @@
+package com.egen.test.userservice.validator;
+
+import org.springframework.stereotype.Component;
+
+import com.egen.test.framework.exception.EgenException;
+import com.egen.test.framework.request.IRequest;
+import com.egen.test.framework.requestValidator.IRequestValidator;
+import com.egen.test.pojo.User_Table;
+import com.egen.test.userservice.request.FindUserRequest;
+
+@Component("findUserRequestValidator")
+public class FindUserRequestValidator implements IRequestValidator {
+
+	@Override
+	public boolean validate(IRequest request, EgenException egenException) {
+		User_Table user = ((FindUserRequest) request).getUser();
+		try {
+			int id = Integer.valueOf(user.getId());
+			if (!(id > 0)) {
+				egenException.setEgenException(new Exception("Invalid Request"),
+						"Invalid Request Exception: Invalid ID","EGEN_REQUEST_VALIDATION_001");
+				return false;
+			}
+		} catch (Exception e) {
+			egenException.setEgenException(e, "Invalid Request Exception: ID should have only numbers","EGEN_REQUEST_VALIDATION_001");
+			return false;
+		}
+		return true;
+	}
+
+}

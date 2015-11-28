@@ -1,0 +1,15 @@
+package com.egen.test.framework.facade;
+
+import com.egen.test.framework.constants.IUserServiceConstants;
+import com.egen.test.framework.extrainfo.IExtraInfo;
+import com.egen.test.framework.request.IRequest;
+import com.egen.test.framework.requestValidator.IRequestValidator;
+import com.egen.test.framework.response.IResponse;
+import com.egen.test.framework.responseMapper.IResponseMapper;
+import com.egen.test.framework.service.IService;
+
+public interface IResourceFacade {
+	IResponse initiateService(IUserServiceConstants userServiceConstants);
+	public void processRequest(IRequest request,IService service,IExtraInfo extraInfo);
+
+}

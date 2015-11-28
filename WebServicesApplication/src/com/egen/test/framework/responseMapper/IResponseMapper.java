@@ -1,0 +1,13 @@
+package com.egen.test.framework.responseMapper;
+
+import com.egen.test.framework.backendresponse.IBackendResponse;
+import com.egen.test.framework.exception.EgenException;
+import com.egen.test.framework.response.IResponse;
+
+public interface IResponseMapper {
+
+	IResponse createInvalidResponse(EgenException egenException);
+
+	IResponse buildResponse(IBackendResponse backendResponse);
+
+}

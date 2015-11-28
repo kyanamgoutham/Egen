@@ -1,0 +1,41 @@
+package com.egen.test.userservice.facade;
+
+import com.egen.test.framework.backendresponse.BackendResponse;
+import com.egen.test.framework.extrainfo.IExtraInfo;
+import com.egen.test.framework.facade.IResourceFacade;
+import com.egen.test.framework.facade.ResourceFacade;
+import com.egen.test.framework.request.IRequest;
+import com.egen.test.framework.requestValidator.IRequestValidator;
+import com.egen.test.framework.responseMapper.IResponseMapper;
+import com.egen.test.framework.service.IService;
+import com.egen.test.userservice.request.CreateUserRequest;
+import com.egen.test.userservice.service.IUserService;
+
+public class CreateUserResourceFacade extends ResourceFacade {
+
+	IRequestValidator requestValidator;
+	IService service;
+	IResponseMapper responseMapper;
+
+	@Override
+	public IResourceFacade initiate() {
+		setRequestValidator(requestValidator);
+		setService(service);
+		setResponseMapper(responseMapper);
+		return this;
+	}
+
+	@Override
+	public void processRequest(IRequest request, IService service, IExtraInfo extraInfo) {
+		IUserService userService = (IUserService) service;
+		backendResponse = (BackendResponse) userService.save(((CreateUserRequest) request).getUser());
+	}
+
+	public CreateUserResourceFacade(IRequestValidator requestValidator, IService service,
+			IResponseMapper responseMapper) {
+		this.requestValidator = requestValidator;
+		this.service = service;
+		this.responseMapper = responseMapper;
+	}
+
+}

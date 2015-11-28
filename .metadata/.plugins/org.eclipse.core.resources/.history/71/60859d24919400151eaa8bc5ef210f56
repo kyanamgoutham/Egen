@@ -1,0 +1,8 @@
+package com.egen.test.userservice.request;
+
+import com.egen.test.framework.request.Request;
+
+public class FindUserRequest extends Request {
+	User_Table user ;
+
+}

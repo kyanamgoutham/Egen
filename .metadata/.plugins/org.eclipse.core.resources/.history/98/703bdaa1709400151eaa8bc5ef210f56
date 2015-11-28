@@ -1,0 +1,47 @@
+/**
+ * 
+ */
+package com.egen.test.userservice.resource;
+
+import javax.ws.rs.Consumes;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+
+import org.springframework.stereotype.Component;
+
+import com.egen.test.framework.constants.UserServiceConstants;
+import com.egen.test.framework.facade.ListUserResourceFacade;
+import com.egen.test.framework.resource.Resource;
+import com.egen.test.framework.response.IResponse;
+import com.egen.test.userservice.request.UserListRequest;
+import com.egen.test.userservice.response.UserListResponse;
+
+/**
+ * @author Goutham
+ *
+ */
+@Component
+@Path("/listservice")
+public class UserResource extends Resource {
+	
+	private ListUserResourceFacade userListResourceFacade;
+	
+	@POST
+	@Path("/userList")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public IResponse getUserList(UserListRequest request) {
+		UserListResponse response = new UserListResponse();
+		response= (UserListResponse) userListResourceFacade.initiate().initiateService(request,response,UserServiceConstants.ListAll);
+		copyRequestCommonData(request, response);
+		return response;
+	}
+	
+	
+	public UserResource(ListUserResourceFacade userListResourceFacade) {
+		super();
+		this.userListResourceFacade = userListResourceFacade;
+	}
+}

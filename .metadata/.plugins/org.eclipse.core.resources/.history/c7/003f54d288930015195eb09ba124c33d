@@ -1,0 +1,52 @@
+package com.egen.test.database.dao.userservice;
+
+import java.util.List;
+
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.egen.test.pojo.User;
+
+@Repository
+@Transactional
+public class UserDAO implements IUserDAO {
+
+	
+	private SessionFactory sessionFactory;
+	
+	
+	public SessionFactory getSessionFactory() {
+		return sessionFactory;
+	}
+
+	@Autowired
+	public void setSessionFactory(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
+	}
+
+	@Override
+	public List<User> getUserList() {
+		return getSessionFactory().getCurrentSession().createQuery("from User").list();
+	}
+
+	@Override
+	public User findById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public User save(User user) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void delete(User user) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

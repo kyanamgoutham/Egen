@@ -1,0 +1,5 @@
+package com.egen.test.framework.backendresponse;
+
+public interface IBackendResponse {
+
+}

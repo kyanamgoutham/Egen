@@ -1,0 +1,47 @@
+package com.egen.test.userservice.facade;
+
+import com.egen.test.framework.backendresponse.BackendResponse;
+import com.egen.test.framework.constants.UserServiceConstants;
+import com.egen.test.framework.extrainfo.IExtraInfo;
+import com.egen.test.framework.request.IRequest;
+import com.egen.test.framework.requestValidator.IRequestValidator;
+import com.egen.test.framework.response.IResponse;
+import com.egen.test.framework.responseMapper.IResponseMapper;
+import com.egen.test.framework.service.IService;
+import com.egen.test.userservice.request.CreateUserRequest;
+import com.egen.test.userservice.service.IUserService;
+
+public class ListUserResourceFacade extends ResourceFacade {
+	
+	IRequestValidator requestValidator;
+	IService service;
+	IResponseMapper responseMapper;
+	
+	@Override
+	public IResourceFacade initiate() {
+		setRequestValidator(requestValidator);
+		setService(service);
+		setResponseMapper(responseMapper);
+		return this;
+	}
+
+	@Override
+	public void processRequest(IRequest request, IService service, IExtraInfo extraInfo) {
+		IUserService userService = (IUserService) service;
+		UserServiceConstants userServiceConstants = (UserServiceConstants) extraInfo;
+		if (userServiceConstants.equals(UserServiceConstants.ListAll)) {
+			backendResponse = (BackendResponse) userService.getUserList();
+		} else if (userServiceConstants.equals(UserServiceConstants.Insert)) {
+			backendResponse = (BackendResponse) userService.save(((CreateUserRequest) request).getUser());
+		}
+
+	}
+
+	
+	public ListUserResourceFacade(IRequest request, IResponse response, IRequestValidator requestValidator,
+			IService service, IResponseMapper responseMapper) {
+		this.requestValidator = requestValidator;
+		this.service = service;
+		this.responseMapper = responseMapper;
+	}
+}

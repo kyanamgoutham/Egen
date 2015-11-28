@@ -1,0 +1,56 @@
+package com.egen.test.framework.facade;
+
+import com.egen.test.framework.backendresponse.BackendResponse;
+import com.egen.test.framework.exception.EgenException;
+import com.egen.test.framework.request.IRequest;
+import com.egen.test.framework.requestValidator.IRequestValidator;
+import com.egen.test.framework.response.IResponse;
+import com.egen.test.framework.responseMapper.IResponseMapper;
+import com.egen.test.framework.service.IService;
+
+public abstract class ResourceFacade implements IResourceFacade {
+
+	private IRequestValidator requestValidator;
+	private IService service;
+	private IResponseMapper responseMapper;
+
+	@Override
+	public IResponse initiateService(IRequest request,IResponse response) {
+		EgenException egenException = null; 
+		if (!requestValidator.validate(request, egenException)) {
+			return responseMapper.createInvalidResponse(response, egenException);
+		}
+
+		IBackendResponse backendResponse = processRequest(request, service);
+
+		if (backendResponse.isValidResponse()) {
+			response = responseMapper.buildResponse(backendResponse);
+		}
+
+		return response;
+	}
+
+	public IRequestValidator getRequestValidator() {
+		return requestValidator;
+	}
+
+	public IService getService() {
+		return service;
+	}
+
+	public IResponseMapper getResponseMapper() {
+		return responseMapper;
+	}
+
+	public void setRequestValidator(IRequestValidator requestValidator) {
+		this.requestValidator = requestValidator;
+	}
+
+	public void setService(IService service) {
+		this.service = service;
+	}
+
+	public void setResponseMapper(IResponseMapper responseMapper) {
+		this.responseMapper = responseMapper;
+	}
+}

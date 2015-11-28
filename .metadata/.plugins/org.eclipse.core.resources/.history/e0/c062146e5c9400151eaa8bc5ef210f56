@@ -1,0 +1,29 @@
+package com.egen.test.userservice.responsemapper;
+
+import java.util.List;
+
+import com.egen.test.framework.ResponseMapper.IResponseMapper;
+import com.egen.test.framework.backendresponse.BackendResponse;
+import com.egen.test.framework.exception.EgenException;
+import com.egen.test.framework.response.IResponse;
+import com.egen.test.pojo.User_Table;
+import com.egen.test.userservice.response.UserListResponse;
+
+public class UserListResponseMapper implements IResponseMapper {
+
+	@Override
+	public IResponse createInvalidResponse(IResponse response, EgenException egenException) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public IResponse buildResponse(BackendResponse backendResponse) {
+		UserListResponse userListResponse = new UserListResponse();
+		List<User_Table> userList = (List<User_Table>)backendResponse.getBackendResponse();
+		userListResponse.setUserList(userList);
+		userListResponse.setSize(userList.size());
+		return userListResponse;
+	}
+
+}

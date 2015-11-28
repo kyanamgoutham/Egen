@@ -1,0 +1,21 @@
+package com.egen.test.framework.exception;
+
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+
+import com.egen.test.framework.request.IRequest;
+import com.egen.test.framework.resource.Resource;
+import com.egen.test.framework.response.IResponse;
+import com.egen.test.framework.response.failure.FailureResponse;
+
+@ControllerAdvice
+public class GlobalExceptionHandler extends Resource {
+	
+	@ExceptionHandler(Throwable.class)
+	public IResponse handleException(IRequest request,Exception e){
+		FailureResponse failureResponse = new FailureResponse();
+		
+		return null;
+	}
+
+}
