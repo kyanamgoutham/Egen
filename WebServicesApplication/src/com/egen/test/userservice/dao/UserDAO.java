@@ -1,5 +1,6 @@
 package com.egen.test.userservice.dao;
 
+import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -32,6 +33,7 @@ public class UserDAO implements IUserDAO {
 	}
 
 	@Override
+	@Transactional
 	public IBackendResponse findById(int id) {
 		BackendResponse backendResponse = new BackendResponse();
 		try {
@@ -46,6 +48,7 @@ public class UserDAO implements IUserDAO {
 	}
 
 	@Override
+	@Transactional
 	public IBackendResponse save(User_Table user) {
 		BackendResponse backendResponse = new BackendResponse();
 		try {
@@ -65,9 +68,37 @@ public class UserDAO implements IUserDAO {
 	}
 
 	@Override
+	@Transactional
 	public void delete(User_Table user) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public IBackendResponse insertByID(User_Table retrievedUser) {
+		BackendResponse backendResponse = new BackendResponse();
+		try {
+			Query query = sessionFactory.getCurrentSession().createQuery(
+					"update User_Table set fName = :fName,lName = :lName, mName =:mName, age = :age, gender =:gender,phone =:phone, zip =:zip  where id =:id");
+			query.setParameter("id", retrievedUser.getId());
+			query.setParameter("fName", retrievedUser.getfName());
+			query.setParameter("lName", retrievedUser.getlName());
+			query.setParameter("mName", retrievedUser.getmName());
+			query.setParameter("age", retrievedUser.getAge());
+			query.setParameter("phone", retrievedUser.getPhone());
+			query.setParameter("gender", retrievedUser.getGender());
+			query.setParameter("zip", retrievedUser.getZip());
+			if(query.executeUpdate() == 1){
+				backendResponse.setBackendResponse(retrievedUser);
+			}else{
+				throw new Exception("SQLException");
+			}			
+		} catch (Exception e) {
+			EgenException egenException = new EgenException();
+			egenException.setEgenException(e, "Backend Error", "EGEN_DAO_ERR_1");
+			backendResponse.setBackendResponse(egenException);
+		}
+		return backendResponse;
 	}
 
 }

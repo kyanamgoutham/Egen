@@ -26,7 +26,7 @@ public abstract class ResourceFacade implements IResourceFacade {
 		if (backendResponse.isValidResponse()) {
 			response = responseMapper.buildResponse(backendResponse);
 		}else{
-			
+			return responseMapper.createInvalidResponse((EgenException)backendResponse.getBackendResponse());
 		}
 
 		return response;

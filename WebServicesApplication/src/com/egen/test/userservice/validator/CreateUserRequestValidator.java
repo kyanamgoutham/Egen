@@ -11,36 +11,50 @@ import com.egen.test.userservice.request.CreateUserRequest;
 
 @Component("createUserRequestValidator")
 public class CreateUserRequestValidator implements IRequestValidator {
-	
-	
+
 	@Override
 	public boolean validate(IRequest request, EgenException egenException) {
-		User_Table user = ((CreateUserRequest)request).getUser();
-		if(StringUtils.isBlank(user.getfName())){
-			 populateException(egenException,"Invalid Request Exception: missing fname");
-		}else if(StringUtils.isBlank(user.getlName())){
-			 populateException(egenException,"Invalid Request Exception: missing lname");
-		}else if(StringUtils.isBlank(user.getPhone())){
-			 populateException(egenException,"Invalid Request Exception: missing phone");
-		}else if(user.getPhone().length() != 10 && Long.valueOf(user.getPhone())>0){
-			 populateException(egenException,"Invalid Request Exception: Invalid phone Number length");
-		}else if(StringUtils.isBlank(user.getGender())){
-			 populateException(egenException,"Invalid Request Exception: missing Gender");
-		}else if(!(user.getGender().equalsIgnoreCase("m") || user.getGender().equalsIgnoreCase("f"))){
-			 populateException(egenException,"Invalid Request Exception: Invalid Gender");
-		}else if(user.getAge()<=0){
-			 populateException(egenException,"Invalid Request Exception: Invalid Age");
+		User_Table user = ((CreateUserRequest) request).getUser();
+		String operation = ((CreateUserRequest) request).getOperation();
+		if (StringUtils.isBlank(operation)) {
+			populateException(egenException, "Invalid Request Exception: missing operation");
+		} else if (!("insert".equalsIgnoreCase(operation) || "update".equalsIgnoreCase(operation))) {
+			populateException(egenException, "Invalid Request Exception: invalid operation");
+		}else if ("insert".equalsIgnoreCase(operation)) {
+			if (StringUtils.isBlank(user.getfName())) {
+				populateException(egenException, "Invalid Request Exception: missing fname");
+			} else if (StringUtils.isBlank(user.getlName())) {
+				populateException(egenException, "Invalid Request Exception: missing lname");
+			} else if (StringUtils.isBlank(user.getPhone())) {
+				populateException(egenException, "Invalid Request Exception: missing phone");
+			} else if (user.getPhone().length() != 10 && Long.valueOf(user.getPhone()) > 0) {
+				populateException(egenException, "Invalid Request Exception: Invalid phone Number length");
+			} else if (StringUtils.isBlank(user.getGender())) {
+				populateException(egenException, "Invalid Request Exception: missing Gender");
+			} else if (!(user.getGender().equalsIgnoreCase("m") || user.getGender().equalsIgnoreCase("f"))) {
+				populateException(egenException, "Invalid Request Exception: Invalid Gender");
+			} else if (user.getAge() <= 0) {
+				populateException(egenException, "Invalid Request Exception: Invalid Age");
+			}
+		}else if("update".equalsIgnoreCase(operation)){
+			if (StringUtils.isNotBlank(user.getPhone()) && user.getPhone().length() != 10 && Long.valueOf(user.getPhone()) > 0) {
+				populateException(egenException, "Invalid Request Exception: Invalid phone Number length");
+			} else if (StringUtils.isNotBlank(user.getGender()) && !(user.getGender().equalsIgnoreCase("m") || user.getGender().equalsIgnoreCase("f"))) {
+				populateException(egenException, "Invalid Request Exception: Invalid Gender");
+			} else if (user.getAge() < 0) {
+				populateException(egenException, "Invalid Request Exception: Invalid Age");
+			}
 		}
-		
-		if(egenException.getException() != null){
+
+		if (egenException.getException() != null) {
 			return false;
 		}
-		
+
 		return true;
 	}
-	
-	private void populateException(EgenException egenException,String errorMsg){
-		egenException.setEgenException(new Exception("InvalidRequest"),errorMsg,"EGEN_REQUEST_VALIDATION_001");
+
+	private void populateException(EgenException egenException, String errorMsg) {
+		egenException.setEgenException(new Exception("InvalidRequest"), errorMsg, "EGEN_REQUEST_VALIDATION_001");
 	}
 
 }

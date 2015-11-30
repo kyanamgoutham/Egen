@@ -9,4 +9,5 @@ public interface IUserService extends IService{
     public IBackendResponse getUserList();
     public void delete(User_Table user);
     public IBackendResponse findById(String id);
+	public IBackendResponse insertByID(User_Table retrievedUser);
 }

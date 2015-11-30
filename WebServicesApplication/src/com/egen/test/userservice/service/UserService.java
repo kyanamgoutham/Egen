@@ -37,5 +37,11 @@ public class UserService implements IUserService {
 	public IBackendResponse findById(String id) {		
 		return userDao.findById(Integer.valueOf(id));
 	}
+
+	@Override
+	@Transactional
+	public IBackendResponse insertByID(User_Table retrievedUser) {
+		return userDao.insertByID(retrievedUser);
+	}
 	
 }
