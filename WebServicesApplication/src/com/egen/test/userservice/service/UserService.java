@@ -28,8 +28,8 @@ public class UserService implements IUserService {
 
 	@Override
 	@Transactional
-	public void delete(User_Table user) {
-		userDao.delete(user);
+	public IBackendResponse delete(User_Table user) {
+		return userDao.delete(user);
 	}
 
 	@Override

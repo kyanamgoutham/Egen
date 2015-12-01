@@ -15,9 +15,11 @@ import org.springframework.stereotype.Component;
 import com.egen.test.framework.resource.Resource;
 import com.egen.test.framework.response.IResponse;
 import com.egen.test.userservice.facade.CreateUserResourceFacade;
+import com.egen.test.userservice.facade.DeleteUserResourceFacade;
 import com.egen.test.userservice.facade.FindUserResourceFacade;
 import com.egen.test.userservice.facade.ListUserResourceFacade;
 import com.egen.test.userservice.request.CreateUserRequest;
+import com.egen.test.userservice.request.DeleteUserRequest;
 import com.egen.test.userservice.request.FindUserRequest;
 import com.egen.test.userservice.request.ListUserRequest;
 
@@ -34,6 +36,9 @@ public class UserResource extends Resource {
 	private CreateUserResourceFacade createUserResourceFacade;
 	@Autowired
 	private FindUserResourceFacade findUserResourceFacade;
+	
+	@Autowired
+	private DeleteUserResourceFacade deleteUserResourceFacade;
 	
 	@POST
 	@Path("/listuser")
@@ -64,6 +69,17 @@ public class UserResource extends Resource {
 	public IResponse createUser(CreateUserRequest request) {
 		IResponse response = null;
 		response = createUserResourceFacade.initiate().initiateService(request, response);
+		copyRequestCommonData(request, response);
+		return response;
+	}
+	
+	@POST
+	@Path("/deleteuser")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public IResponse deleteUser(DeleteUserRequest request) {
+		IResponse response = null;
+		response = deleteUserResourceFacade.initiate().initiateService(request, response);
 		copyRequestCommonData(request, response);
 		return response;
 	}

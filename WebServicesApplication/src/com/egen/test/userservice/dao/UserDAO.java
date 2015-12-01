@@ -69,8 +69,23 @@ public class UserDAO implements IUserDAO {
 
 	@Override
 	@Transactional
-	public void delete(User_Table user) {
-		// TODO Auto-generated method stub
+	public IBackendResponse delete(User_Table user) {
+		BackendResponse backendResponse = new BackendResponse();
+		try {
+			Query query = sessionFactory.getCurrentSession().createQuery("delete from User_Table where id=:id");
+			query.setParameter("id", user.getId());
+			if(query.executeUpdate() == 1){
+				backendResponse.setBackendResponse("User Deleted");
+			}else{
+				throw new Exception("SQLException");
+			}
+
+		} catch (Exception e) {
+			EgenException egenException = new EgenException();
+			egenException.setEgenException(e, "Backend Error", "EGEN_DAO_ERR_1");
+			backendResponse.setBackendResponse(egenException);
+		}
+		return backendResponse;
 
 	}
 

@@ -7,7 +7,7 @@ import com.egen.test.pojo.User_Table;
 public interface IUserService extends IService{
 	public IBackendResponse save(User_Table user);
     public IBackendResponse getUserList();
-    public void delete(User_Table user);
+    public IBackendResponse delete(User_Table user);
     public IBackendResponse findById(String id);
 	public IBackendResponse insertByID(User_Table retrievedUser);
 }

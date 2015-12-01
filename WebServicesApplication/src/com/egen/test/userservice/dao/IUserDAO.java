@@ -11,7 +11,7 @@ public interface IUserDAO extends IDAO {
 
 	public IBackendResponse save(User_Table user);
 
-	public void delete(User_Table user);
+	public IBackendResponse delete(User_Table user);
 
 	public IBackendResponse insertByID(User_Table retrievedUser);
 
